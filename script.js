@@ -14,6 +14,18 @@
   const stickyCta = document.querySelector("#sticky-cta");
   const heroCta = document.querySelector('[data-cta="hero"]');
 
+  let leadTracked = false;
+  document.querySelectorAll('a[data-cta][href^="https://chat.whatsapp.com/"]').forEach((cta) => {
+    cta.addEventListener("click", () => {
+      if (leadTracked || typeof window.fbq !== "function") return;
+      leadTracked = true;
+      window.fbq("track", "Lead", {
+        content_name: "Grupo oficial no WhatsApp",
+        cta_location: cta.dataset.cta,
+      });
+    });
+  });
+
   let startedAt = Date.now();
   try {
     const savedStart = Number(sessionStorage.getItem(STORAGE_KEY));

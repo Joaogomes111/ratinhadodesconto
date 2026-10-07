@@ -51,7 +51,7 @@
     spots.textContent = String(availableSpots);
     spotsUnit.textContent = availableSpots === 1 ? "vaga" : "vagas";
     stickySpots.textContent = String(availableSpots);
-    stickySpotsUnit.textContent = availableSpots === 1 ? "vaga" : "vagas";
+    stickySpotsUnit.textContent = availableSpots === 1 ? "vaga disponível" : "vagas disponíveis";
     progress.style.width = `${(availableSpots / INITIAL_SPOTS) * 100}%`;
   };
 
